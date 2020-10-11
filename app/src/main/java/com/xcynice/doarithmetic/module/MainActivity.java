@@ -1,8 +1,10 @@
-package com.xcynice.doarithmetic;
+package com.xcynice.doarithmetic.module;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.xcynice.doarithmetic.R;
 
 /**
  * @Author 许朋友爱玩
