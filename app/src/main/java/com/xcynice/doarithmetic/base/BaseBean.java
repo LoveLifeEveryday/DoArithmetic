@@ -5,10 +5,9 @@ import java.io.Serializable;
 
 /**
  * @Author 许朋友爱玩
- * @Date   2020/6/12
+ * @Date 2020/6/12
  * @Github https://github.com/LoveLifeEveryday
  * @JueJin https://juejin.im/user/5e429bbc5188254967066d1b/posts
- *
  * @Description BaseBean
  */
 
@@ -29,5 +28,4 @@ public class BaseBean<T> implements Serializable {
         this.errorCode = code;
         this.data = data;
     }
-
 }

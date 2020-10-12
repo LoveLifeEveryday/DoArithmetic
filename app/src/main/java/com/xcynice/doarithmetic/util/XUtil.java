@@ -32,9 +32,7 @@ public class XUtil {
     }
 
     public static void showLoading(String msg) {
-        progressDialog = ProgressDialog.show(ActivityUtil.getCurrentActivity(), "", msg, true, true);
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.show();
+        showLoading(ActivityUtil.getCurrentActivity(), msg);
     }
 
     public static String getString(int id) {
@@ -61,6 +59,7 @@ public class XUtil {
     public static void dismissLoading() {
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
+            progressDialog = null;
         }
     }
 

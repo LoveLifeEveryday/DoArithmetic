@@ -3,6 +3,7 @@ package com.xcynice.doarithmetic.app;
 
 import android.app.Application;
 
+import com.didichuxing.doraemonkit.DoraemonKit;
 import com.xcynice.doarithmetic.util.ActivityUtil;
 import com.xcynice.doarithmetic.util.LogUtil;
 import com.xcynice.doarithmetic.util.XUtil;
@@ -17,9 +18,11 @@ import com.xcynice.doarithmetic.util.XUtil;
 
 public class MyApplication extends Application {
 
+
     @Override
     public void onCreate() {
         super.onCreate();
+        DoraemonKit.install(this,"46facab743d9e566a8b57525246e8e22");
         //初始化
         XUtil.initialize(this);
         //设置打印开关

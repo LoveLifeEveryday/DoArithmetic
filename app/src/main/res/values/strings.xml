@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DoArithmetic</string>
+    <string name="app_name">计算易</string>
     <string name="gsonIsNull">gson == null</string>
     <string name="MEDIA_TYPE">application/json; charset=UTF-8</string>
     <string name="baseUrl">https://www.wanandroid.com/</string>
@@ -8,7 +8,6 @@
     <string name="PARSE_ERROR_MSG">解析数据失败</string>
     <string name="errorMsg">errorMsg</string>
     <string name="loading">加载中</string>
-    <string name="PARSE_ERROR_MSG">解析数据失败</string>
     <string name="BAD_NETWORK_MSG">网络问题</string>
     <string name="CONNECT_ERROR_MSG">连接错误</string>
     <string name="CONNECT_TIMEOUT_MSG">连接超时</string>
