@@ -15,6 +15,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.xcynice.doarithmetic.R;
 import com.xcynice.doarithmetic.base.BaseActivity;
 import com.xcynice.doarithmetic.bean.Arithmetic;
+import com.xcynice.doarithmetic.module.question.activity.QuestionActivity;
 import com.xcynice.doarithmetic.module.test.presenter.TestPresenter;
 import com.xcynice.doarithmetic.module.test.view.ITestView;
 import com.xcynice.doarithmetic.util.ToastUtil;
@@ -114,7 +115,12 @@ public class TestActivity extends BaseActivity<TestPresenter> implements ITestVi
                 if (i < size) {
                     mTvQuestion.setText(mList.get(i).getQuestion());
                 } else {
-                    ToastUtil.showToast("跳转到下个界面");
+                    Intent intent = new Intent(this, TestResultActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("allNum", size+"");
+                    bundle.putString("correctNum", correctSize+"");
+                    intent.putExtras(bundle);
+                    startActivity(intent);
                 }
                 break;
             case R.id.btn_go:
@@ -126,9 +132,14 @@ public class TestActivity extends BaseActivity<TestPresenter> implements ITestVi
                     if (i < size) {
                         mTvQuestion.setText(mList.get(i).getQuestion());
                     } else {
-                        ToastUtil.showToast("跳转到下个界面");
+                        Intent intent = new Intent(this, TestResultActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("allNum", size+"");
+                        bundle.putString("correctNum", correctSize+"");
+                        intent.putExtras(bundle);
+                        startActivity(intent);
                     }
-                }else {
+                } else {
                     ToastUtil.showToast("你还没作答吖");
                 }
                 break;

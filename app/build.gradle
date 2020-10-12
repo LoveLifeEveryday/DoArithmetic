@@ -105,5 +105,5 @@ dependencies {
     /*输入框*/
     implementation 'com.github.HITGIF:TextFieldBoxes:1.4.5'
 
-
+    implementation 'com.github:CircleProgress:1.0.1'
 }
