@@ -20,13 +20,12 @@ import com.xcynice.doarithmetic.module.question.presenter.QuestionPresenter;
 import com.xcynice.doarithmetic.module.question.view.IQuestionView;
 import com.xcynice.doarithmetic.util.ToastUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class QuestionActivity extends BaseActivity<QuestionPresenter> implements IQuestionView, BaseQuickAdapter.OnItemClickListener, BaseQuickAdapter.RequestLoadMoreListener {
+public class QuestionActivity extends BaseActivity<QuestionPresenter> implements IQuestionView {
     public static final String NUM = "com/xcynice/doarithmetic/module/getQuestion/activity/QuestionActivity.java.num";
     public static final String ROUND = "com/xcynice/doarithmetic/module/getQuestion/activity/QuestionActivity.java.round";
     @BindView(R.id.iv_title_left)
@@ -49,16 +48,6 @@ public class QuestionActivity extends BaseActivity<QuestionPresenter> implements
      */
     private int mCurrentCounter;
 
-    /**
-     * 每一次加载的数量
-     */
-    private final static int SINGLE_PAGE_TOTAL_COUNTER = 20;
-
-    /**
-     * 记录分页，方便进行加载更多
-     */
-    private int mPage = 0;
-    private List<Arithmetic> mList = new ArrayList<>();
 
     /**
      * 记录点击事件的位置，方便后面进行显示答案
@@ -92,8 +81,6 @@ public class QuestionActivity extends BaseActivity<QuestionPresenter> implements
         mAdapter = new QuestionAdapter(R.layout.item_question);
         mRvQuestion.setLayoutManager(new LinearLayoutManager(this));
         mAdapter.openLoadAnimation();
-        mAdapter.setOnItemClickListener(this);
-        mAdapter.setOnLoadMoreListener(this, mRvQuestion);
         mRvQuestion.setAdapter(mAdapter);
     }
 
@@ -105,7 +92,6 @@ public class QuestionActivity extends BaseActivity<QuestionPresenter> implements
 
     @Override
     public void setQuestionSuccess(List<Arithmetic> list) {
-        mList = list;
         mCurrentCounter = list.size();
         mAdapter.setNewData(list);
     }
@@ -115,39 +101,13 @@ public class QuestionActivity extends BaseActivity<QuestionPresenter> implements
         ToastUtil.showToast(msg);
     }
 
-    @Override
-    public void setQuestionMoreSuccess(List<Arithmetic> list) {
-        mList = list;
-        mCurrentCounter = list.size();
-        mAdapter.addData(list);
-        mAdapter.loadMoreComplete();
-    }
-
-    @Override
-    public void setQuestionMoreFail(String msg) {
-        ToastUtil.showToast(msg);
-        mAdapter.loadMoreFail();
-    }
 
     @OnClick(R.id.iv_title_left)
     public void onViewClicked() {
         finish();
     }
 
-    @Override
-    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        mPosition = position;
 
-        mAdapter.notifyDataSetChanged();
-    }
 
-    @Override
-    public void onLoadMoreRequested() {
-        if (mCurrentCounter < SINGLE_PAGE_TOTAL_COUNTER) {
-            //数据加载完毕，没有更多的数据
-            mAdapter.loadMoreEnd();
-        } else {
-            presenter.getQuestionMore(++mPage);
-        }
-    }
+
 }

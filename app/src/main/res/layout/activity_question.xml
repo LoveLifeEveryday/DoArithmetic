@@ -9,12 +9,7 @@
 
     <include layout="@layout/item_title" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="@dimen/dp_10"
-        android:text="使用提示：单击题目即可显示答案啦！" />
+    
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_question"

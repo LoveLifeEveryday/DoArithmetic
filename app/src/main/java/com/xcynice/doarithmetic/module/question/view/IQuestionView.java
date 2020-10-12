@@ -31,17 +31,5 @@ public interface IQuestionView extends BaseView {
      */
     void setQuestionFail(String msg);
 
-    /**
-     * 加载更多问题列表成功
-     *
-     * @param list 问题列表
-     */
-    void setQuestionMoreSuccess(List<Arithmetic> list);
 
-    /**
-     * 加载更多问题列表失败
-     *
-     * @param msg 失败信息
-     */
-    void setQuestionMoreFail(String msg);
 }

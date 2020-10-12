@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
  * @Date 2020/10/12 21:13
  * @Github https://github.com/LoveLifeEveryday
  * @JueJin https://juejin.im/user/5e429bbc5188254967066d1b/posts
- * @Description TODO
+ * @Description QuestionAdapter
  */
 
 public class QuestionAdapter extends BaseQuickAdapter<Arithmetic, BaseViewHolder> {
@@ -25,6 +25,6 @@ public class QuestionAdapter extends BaseQuickAdapter<Arithmetic, BaseViewHolder
     @Override
     protected void convert(@NotNull BaseViewHolder helper, Arithmetic arithmetic) {
         helper.setText(R.id.tv_question, arithmetic.getQuestion());
-        helper.setText(R.id.tv_answer, arithmetic.getAnswer());
+        helper.setText(R.id.tv_answer, "="+arithmetic.getAnswer());
     }
 }

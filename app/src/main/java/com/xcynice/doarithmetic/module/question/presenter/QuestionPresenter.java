@@ -19,14 +19,8 @@ import java.util.List;
  */
 
 public class QuestionPresenter extends BasePresenter<IQuestionView> {
-    /**
-     * 所有题目的数量，后面分页要用到
-     */
-    private int mSizeQuestion;
-    /**
-     * 所有题目
-     */
-    private List<Arithmetic> arithmeticList = new ArrayList<>();
+
+
 
     public QuestionPresenter(IQuestionView baseView) {
         super(baseView);
@@ -43,11 +37,7 @@ public class QuestionPresenter extends BasePresenter<IQuestionView> {
 
             @Override
             public void onSuccess(BaseBean<List<Arithmetic>> o) {
-                arithmeticList = o.data;
-                mSizeQuestion = arithmeticList.size();
-                // 返回 0 到 9 的数据，分页加载啦
-                List<Arithmetic> listReturn = arithmeticList.subList(0, 20);
-                baseView.setQuestionSuccess(listReturn);
+                baseView.setQuestionSuccess(o.data);
             }
 
             @Override
@@ -59,18 +49,4 @@ public class QuestionPresenter extends BasePresenter<IQuestionView> {
     }
 
 
-    /**
-     * 加载更多问题
-     *
-     * @param page 页数
-     */
-    public void getQuestionMore(int page) {
-        if (page * 20 + 20 <= mSizeQuestion) {
-            List<Arithmetic> listReturn = arithmeticList.subList(page * 20, page * 20 + 20);
-            baseView.setQuestionMoreSuccess(listReturn);
-        } else {
-            List<Arithmetic> listReturn = arithmeticList.subList(page * 20, mSizeQuestion);
-            baseView.setQuestionMoreSuccess(listReturn);
-        }
-    }
 }
