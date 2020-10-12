@@ -89,8 +89,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
 
     /*BRVAH*/
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.2'
-
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'
     /*沉浸式状态栏*/
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
     implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0'

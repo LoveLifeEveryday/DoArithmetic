@@ -1,5 +1,7 @@
 package com.xcynice.doarithmetic.module;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +13,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.xcynice.doarithmetic.R;
 import com.xcynice.doarithmetic.base.BaseActivity;
 import com.xcynice.doarithmetic.base.BasePresenter;
+import com.xcynice.doarithmetic.module.question.activity.QuestionActivity;
 import com.xcynice.doarithmetic.util.ToastUtil;
 import com.xcynice.doarithmetic.util.XUtil;
 
@@ -18,6 +21,9 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
 import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
+
+import static com.xcynice.doarithmetic.module.question.activity.QuestionActivity.NUM;
+import static com.xcynice.doarithmetic.module.question.activity.QuestionActivity.ROUND;
 
 /**
  * @Author 许朋友爱玩
@@ -124,7 +130,12 @@ public class MainActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_see_questions:
-                ToastUtil.showToast("跳转到查看问题");
+                Intent intent = new Intent(this, QuestionActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(NUM, mEtCount.getText().toString());
+                bundle.putString(ROUND, mEtRange.getText().toString());
+                intent.putExtras(bundle);
+                startActivity(intent);
                 break;
             case R.id.btn_practise:
                 ToastUtil.showToast("跳转到练习答题");

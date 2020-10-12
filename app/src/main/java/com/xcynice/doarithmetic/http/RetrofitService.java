@@ -1,7 +1,9 @@
 package com.xcynice.doarithmetic.http;
 
 
+import com.xcynice.doarithmetic.http.cookie.CookiesManager;
 import com.xcynice.doarithmetic.http.gson.BaseConverterFactory;
+import com.xcynice.doarithmetic.util.XUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -63,6 +65,8 @@ public class RetrofitService {
                 .addInterceptor(httpLoggingInterceptor)
                 //设置超时时间
                 .connectTimeout(15, TimeUnit.SECONDS)
+                //设置Cookie持久化
+                .cookieJar(new CookiesManager(XUtil.getApplication()))
                 .build();
 
 

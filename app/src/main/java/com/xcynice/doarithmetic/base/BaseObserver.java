@@ -2,6 +2,7 @@ package com.xcynice.doarithmetic.base;
 
 import com.google.gson.JsonParseException;
 import com.xcynice.doarithmetic.R;
+import com.xcynice.doarithmetic.util.ToastUtil;
 import com.xcynice.doarithmetic.util.XUtil;
 
 import org.json.JSONException;
@@ -76,6 +77,7 @@ public abstract class BaseObserver<T> extends DisposableObserver<T> {
                 }
                 //系统异常
             } else {
+                ToastUtil.showToast(e.getMessage());
                 if (e instanceof HttpException) {
                     //HTTP错误
                     be = new BaseException(XUtil.getString(R.string.BAD_NETWORK_MSG), e);
