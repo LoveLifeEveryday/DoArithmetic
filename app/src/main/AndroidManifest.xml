@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".module.question.activity.QuestionActivity"></activity>
+        <activity android:name=".module.test.activity.TestActivity"></activity>
+        <activity android:name=".module.question.activity.QuestionActivity" />
         <activity android:name=".module.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

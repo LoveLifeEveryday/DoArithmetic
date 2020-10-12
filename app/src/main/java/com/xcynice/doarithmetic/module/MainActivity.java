@@ -14,6 +14,7 @@ import com.xcynice.doarithmetic.R;
 import com.xcynice.doarithmetic.base.BaseActivity;
 import com.xcynice.doarithmetic.base.BasePresenter;
 import com.xcynice.doarithmetic.module.question.activity.QuestionActivity;
+import com.xcynice.doarithmetic.module.test.activity.TestActivity;
 import com.xcynice.doarithmetic.util.ToastUtil;
 import com.xcynice.doarithmetic.util.XUtil;
 
@@ -138,7 +139,12 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.btn_practise:
-                ToastUtil.showToast("跳转到练习答题");
+                Intent intent2 = new Intent(this, TestActivity.class);
+                Bundle bundle2 = new Bundle();
+                bundle2.putString(NUM, mEtCount.getText().toString());
+                bundle2.putString(ROUND, mEtRange.getText().toString());
+                intent2.putExtras(bundle2);
+                startActivity(intent2);
                 break;
             default:
         }
